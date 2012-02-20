@@ -1,0 +1,35 @@
+= Gnip Power Track Consumer
+
+Power Track consumer example via Heroku. Postgres data storage. Includes a basic web application to display matching results.
+
+== Local Setup
+
+=== Local Enviroment Variables
+
+From the command line:
+
+   export DATABASE_URL="postgres://..."
+   export GNIP_POWER_TRACK_URL="https://your_domain.gnip.com/data_collectors/1/track.json"
+   export GNIP_POWER_TRACK_USER_AND_PASSWORD="user_name:password"
+
+== Heroku Setup
+
+From the command line:
+
+    gem install heroku
+    heroku create --stack cedar
+    heroku rename gnip-power-track (or similar)
+
+=== Heroku Enviroment Variables
+
+From the command line:
+
+    heroku config:add GNIP_POWER_TRACK_URL="https://your_domain.gnip.com/data_collectors/1/track.json"
+    heroku config:add GNIP_POWER_TRACK_USER_AND_PASSWORD="user_name:password"
+
+
+== Heroku Schema Migration
+
+From the command line:
+
+    heroku run "sh target/bin/schemaCreator"
